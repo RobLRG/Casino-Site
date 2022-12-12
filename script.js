@@ -21,7 +21,6 @@ class Deck {
                 this.cards.push(new Card(suits[i], numbers[j], values[j]))
             }
         }
-
     }
 
     shuffle() {
@@ -42,35 +41,118 @@ class Deck {
 
 }
 
-class HumanPlayer {
-    constructor() {
-        this.playerCards = []
+class Player {
+    constructor(name) {
+        this.name = name
+        this.cards = []
+        this.score = 0
     }
 
-    hit(deck) {
-        this.playerCards.push(deck.draw())
-        console.log(this.playerCards)
-    }
-}
-
-const deck = new Deck()
-deck.build()
-deck.shuffle()
-
-function addButton() {
-    let btn = document.createElement("button")
-    let text = document.createTextNode("Draw Card")
-    btn.appendChild(text)
-    let dv = document.getElementById("container")
-    btn.onclick = () => {
+    draw(deck) {
         let card = deck.draw()
-        console.log(card)
+        this.cards.push(card)
         displayCard(card)
+        console.log(this.cards)
+        this.addValues()
     }
-    dv.appendChild(btn)
+
+    addValues() {
+        let added = 0
+        for (const elem of this.cards) {
+            let value = elem.values
+            added = added + value
+        }
+        for (const cards of this.cards) {
+            let symbol = cards.numbers
+            if (symbol == "A" && added > 21) {
+                added = added - 10
+            }
+        }
+        this.score = added
+
+        console.log(this.score)
+    }
+}
+
+class Game {
+    constructor(player1, player2) {
+        this.player1 = player1
+        this.player2 = player2
+        this.deck = new Deck
+    }
+
+    setup() {
+        this.deck.build()
+        this.deck.shuffle()
+        console.log(this.player1.name)
+        for (let i = 0; i < 2; i++) {
+            this.player1.draw(this.deck)
+        }
+        console.log(this.player2.name)
+        for (let i = 0; i < 2; i++) {
+            this.player2.draw(this.deck)
+        }
+
+        this.createButtons()
+
+        this.player1.addValues()
+        this.player2.addValues()
+
+    }
+
+    findWinner() {
+        let winner;
+        let player1Score = this.player1.score
+        let player2Score = this.player2.score
+
+        if (player1Score > player2Score && player1Score <= 21) {
+            winner = this.player1.name
+        } else if (player2Score > player1Score && player2Score <= 21) {
+            winner = this.player2.name
+        } else if (player1Score > 21 && player2Score <= 21) {
+            winner = this.player2.name
+        } else if (player2Score > 21 && player1Score <= 21) {
+            winner = this.player1.name
+        }
+        else if (player1Score == player2Score || (player1Score > 21 && player2Score > 21)) {
+            winner = "noone"
+        }
+
+        console.log(`${winner} wins`)
+
+    }
+
+    createButtons() {
+        let btn = document.createElement("button")
+        let text = document.createTextNode("Draw Card")
+        btn.appendChild(text)
+        let dv = document.getElementById("container")
+        btn.onclick = () => {
+            this.player1.draw(this.deck)
+            // this.player2.draw(this.deck)
+        }
+        dv.appendChild(btn)
+
+        let btn2 = document.createElement("button")
+        let text2 = document.createTextNode("Hold")
+        btn2.appendChild(text2)
+        btn2.onclick = () => {
+            this.findWinner()
+        }
+        dv.appendChild(btn2)
+    }
+
+
+
 
 }
 
+// const deck = new Deck()
+// deck.build()
+// deck.shuffle()
+
+const game = new Game(new Player("jeff"), new Player("steve"))
+game.setup()
 
 function displayCard(card) {
     let cardInfo = card.numbers
@@ -113,7 +195,4 @@ function displayCard(card) {
     }
 }
 
-let player = new HumanPlayer()
-player.hit(deck)
-
-document.addEventListener("DOMContentLoaded", addButton)
+// document.addEventListener("DOMContentLoaded", addButton)
