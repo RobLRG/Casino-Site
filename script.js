@@ -98,7 +98,20 @@ class Game {
         this.player1.addValues()
         this.player2.addValues()
 
+        if (this.player2.name == "CPU the Destroyer") {
+            this.calculateCPUMoves()
+        }
     }
+
+    calculateCPUMoves() {
+        let com = this.player2
+        for (let i = 0; i < 100; i++) {
+            if (com.score <= 15) {
+                com.draw(this.deck)
+            }
+        }
+    }
+
 
     findWinner() {
         let winner;
@@ -124,7 +137,7 @@ class Game {
 
     createButtons() {
         let btn = document.createElement("button")
-        let text = document.createTextNode("Draw Card")
+        let text = document.createTextNode("Hit")
         btn.appendChild(text)
         let dv = document.getElementById("container")
         btn.onclick = () => {
@@ -147,11 +160,10 @@ class Game {
 
 }
 
-// const deck = new Deck()
-// deck.build()
-// deck.shuffle()
 
-const game = new Game(new Player("jeff"), new Player("steve"))
+let name = prompt("please enter a name", "human")
+
+const game = new Game(new Player(name), new Player("CPU the Destroyer"))
 game.setup()
 
 function displayCard(card) {
@@ -194,5 +206,3 @@ function displayCard(card) {
         suitDisplay.classList.add("black")
     }
 }
-
-// document.addEventListener("DOMContentLoaded", addButton)
