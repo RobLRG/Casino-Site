@@ -41,6 +41,10 @@ class Deck {
 
 }
 
+const scoreHolder = document.getElementById("scoreContainer")
+const scoreDisplay = document.createElement("div")
+scoreHolder.appendChild(scoreDisplay)
+
 class Player {
     constructor(name) {
         this.name = name
@@ -51,7 +55,11 @@ class Player {
     draw(deck) {
         let card = deck.draw()
         this.cards.push(card)
-        displayCard(card)
+        if (this.name != "CPU the Destroyer") {
+            displayCard(card)
+        } else if (this.name == "CPU the Destroyer") {
+            displayCPUCard()
+        }
         console.log(this.cards)
         this.addValues()
     }
@@ -69,6 +77,10 @@ class Player {
             }
         }
         this.score = added
+
+        if (this.name != "CPU the Destroyer") {
+            scoreDisplay.innerHTML = this.score
+        }
 
         console.log(this.score)
     }
@@ -133,6 +145,7 @@ class Game {
 
         console.log(`${winner} wins`)
 
+        this.showEndScreen(winner)
     }
 
     createButtons() {
@@ -144,6 +157,7 @@ class Game {
             this.player1.draw(this.deck)
             // this.player2.draw(this.deck)
         }
+        btn.classList.add("button")
         dv.appendChild(btn)
 
         let btn2 = document.createElement("button")
@@ -152,7 +166,66 @@ class Game {
         btn2.onclick = () => {
             this.findWinner()
         }
+        btn2.classList.add("button")
         dv.appendChild(btn2)
+    }
+
+    showEndScreen(winner) {
+        let container = document.getElementById("finito")
+        container.style.display = "block"
+        let message = document.createElement("h2")
+        message.setAttribute("id", "winMessage")
+        let text = document.createTextNode(`${winner} wins!`)
+        message.appendChild(text)
+        container.appendChild(message)
+
+        let button = document.createElement("button")
+        let buttonText = document.createTextNode("Play Again")
+        button.appendChild(buttonText)
+        button.classList.add("button")
+        button.onclick = () => {
+            this.reset()
+        }
+        container.appendChild(button)
+    }
+
+    reset() {
+        this.player1.score = 0
+        this.player1.cards = []
+        this.player2.score = 0
+        this.player2.cards = []
+        this.deck.cards = []
+
+        let btnCont = document.getElementById("container")
+        while (btnCont.firstChild) {
+            btnCont.removeChild(btnCont.firstChild)
+        }
+
+        // let scoreCont = document.getElementById("scoreContainer")
+        // while (scoreCont.firstChild) {
+        //     scoreCont.removeChild(scoreCont.firstChild)
+        // }
+
+        let cardCont = document.getElementById("cardHolder")
+        while (cardCont.firstChild) {
+            cardCont.removeChild(cardCont.firstChild)
+        }
+
+        let oppCardCont = document.getElementById("oppHolder")
+        while (oppCardCont.firstChild) {
+            oppCardCont.removeChild(oppCardCont.firstChild)
+        }
+
+        scoreDisplay.innerHTML = ""
+
+        let fin = document.getElementById("finito")
+
+        while (fin.firstChild) {
+            fin.removeChild(fin.firstChild)
+        }
+        fin.style.display = "none"
+
+        this.setup()
     }
 
 
@@ -166,12 +239,22 @@ let name = prompt("please enter a name", "human")
 const game = new Game(new Player(name), new Player("CPU the Destroyer"))
 game.setup()
 
+function displayCPUCard() {
+    let dv = document.getElementById("oppHolder")
+    let crd = document.createElement("div")
+    let crdArt = document.createElement("h1")
+    crdArt.innerHTML = "§"
+    crdArt.classList.add("cardArt")
+    crd.classList.add("cardBack")
+    dv.appendChild(crd)
+    crd.appendChild(crdArt)
+}
+
 function displayCard(card) {
     let cardInfo = card.numbers
     let cardInfoS = card.suits
 
     let dv = document.getElementById("cardHolder")
-
 
     let cardElement = document.createElement("div")
     let topnum = document.createElement("h1")
