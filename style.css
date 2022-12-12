@@ -1,0 +1,57 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: green;
+}
+
+.card {
+    background-color: white;
+    height: 200px;
+    width: 130px;
+    border-radius: 10px;
+    top: 60%;
+    left: 20%;
+    margin: 20px;
+}
+
+.botnum,
+.topnum {
+    position: relative;
+    font-size: 200%;
+}
+
+.topnum {
+    top: 5px;
+    left: 5px
+}
+
+.botnum {
+    top: 120px;
+    left: 94px
+}
+
+.suit {
+    position: relative;
+    font-size: 250%;
+    left: 50px;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.redBorder {
+    border: 2px solid red;
+}
+
+.blackBorder {
+    border: 2px solid black;
+}
