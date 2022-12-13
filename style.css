@@ -76,12 +76,46 @@ p {
     border: 2px solid black;
 }
 
-#scoreContainer {
+#betStuff {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+}
+
+#scoreContainer,
+#betContainer {
     background-color: white;
     border: 5px solid black;
     width: 50px;
     font-size: large;
     text-align: center;
+}
+
+#betContainer {
+    height: 50px;
+    width: 100px;
+    font-size: 25pt;
+}
+
+#bets,
+#messageBox {
+    background-color: #fa6400;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 60%;
+    left: 80%;
+}
+
+
+#moneyContainer {
+    font-size: 30px;
+    background-color: #fa6400;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 75%;
+    left: 90%;
 }
 
 #cardHolder,
@@ -94,11 +128,6 @@ p {
     margin-right: 300px;
     border-radius: 10px;
 }
-
-/* #oppHolder {
-    background-color: #c85000;
-    width: 200px;
-} */
 
 .cardBack {
     background-color: darkblue;
