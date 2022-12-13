@@ -1,3 +1,15 @@
+const moneyDisplay = document.getElementById("money")
+const messageBox = document.getElementById("messageBox")
+
+
+const scoreHolder = document.getElementById("scoreContainer")
+const scoreDisplay = document.createElement("div")
+scoreHolder.appendChild(scoreDisplay)
+
+const betHolder = document.getElementById("betContainer")
+const betDisplay = document.createElement("div")
+betHolder.appendChild(betDisplay)
+
 class Card {
     constructor(suits, numbers, values) {
         this.suits = suits
@@ -41,14 +53,6 @@ class Deck {
 
 }
 
-const scoreHolder = document.getElementById("scoreContainer")
-const scoreDisplay = document.createElement("div")
-scoreHolder.appendChild(scoreDisplay)
-
-const betHolder = document.getElementById("betContainer")
-const betDisplay = document.createElement("div")
-betHolder.appendChild(betDisplay)
-
 class Player {
     constructor(name) {
         this.name = name
@@ -58,6 +62,10 @@ class Player {
     }
 
     draw(deck) {
+        messageBox.style.display = "none"
+        while (messageBox.firstChild) {
+            messageBox.removeChild(messageBox.firstChild)
+        }
         let card = deck.draw()
         this.cards.push(card)
         if (this.name != "CPU the Destroyer") {
@@ -90,9 +98,6 @@ class Player {
         console.log(this.score)
     }
 }
-
-const moneyDisplay = document.getElementById("money")
-const messageBox = document.getElementById("messageBox")
 
 class Game {
     constructor(player1, player2) {
@@ -172,7 +177,15 @@ class Game {
         btn.appendChild(text)
         let dv = document.getElementById("container")
         btn.onclick = () => {
-            this.player1.draw(this.deck)
+            if (betDisplay.innerHTML != "0") {
+                this.player1.draw(this.deck)
+            } else if (messageBox.style.display == "none") {
+                messageBox.style.display = "block"
+                let message = document.createElement("h1")
+                let text = document.createTextNode("Please input a bet!")
+                message.appendChild(text)
+                messageBox.appendChild(message)
+            }
         }
         btn.classList.add("button")
         dv.appendChild(btn)
