@@ -129,6 +129,11 @@ p {
     border-radius: 10px;
 }
 
+#homeButton {
+    position: absolute;
+    left: 50px;
+}
+
 .cardBack {
     background-color: darkblue;
     border: white solid 10px;

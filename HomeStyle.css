@@ -1,19 +1,16 @@
 body {
-    background-color: black;
+    background-color: green;
 }
 
-h1,
-h2,
-p,
-a {
+h1 {
     color: white;
 }
 
-#container {
-    align-content: center;
-    position: absolute;
-    top: 40%;
-    left: 40%;
+#title {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 20px;
 }
 
 .button {

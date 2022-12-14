@@ -1,0 +1,211 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    width: fit-content;
+    color: #fa6400;
+    background-color: black;
+}
+
+#buttonContainer,
+#scoreStuff {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20px;
+}
+
+body {
+    background-color: green;
+}
+
+p {
+    color: white;
+}
+
+.card {
+    background-color: white;
+    height: 200px;
+    width: 130px;
+    border-radius: 10px;
+    top: 60%;
+    left: 20%;
+    margin: 20px;
+    display: block;
+    float: left;
+}
+
+.botnum,
+.topnum {
+    position: relative;
+    font-size: 200%;
+}
+
+.topnum {
+    top: 5px;
+    left: 5px
+}
+
+.botnum {
+    top: 120px;
+    left: 94px
+}
+
+.suit {
+    position: relative;
+    font-size: 250%;
+    left: 50px;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.redBorder {
+    border: 2px solid red;
+}
+
+.blackBorder {
+    border: 2px solid black;
+}
+
+#betStuff {
+    position: absolute;
+    top: 90%;
+    left: 90%;
+}
+
+#scoreContainer,
+#betContainer {
+    background-color: white;
+    border: 5px solid black;
+    width: 50px;
+    font-size: large;
+    text-align: center;
+}
+
+#betContainer {
+    height: 50px;
+    width: 100px;
+    font-size: 25pt;
+}
+
+#bets,
+#messageBox {
+    background-color: #fa6400;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 60%;
+    left: 80%;
+}
+
+
+#moneyContainer {
+    font-size: 30px;
+    background-color: #fa6400;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 75%;
+    left: 90%;
+}
+
+#cardHolder,
+#oppHolder {
+    border: #fa6400 solid 10px;
+    width: fit-content;
+    height: fit-content;
+    display: block;
+    float: left;
+    margin-right: 300px;
+    border-radius: 10px;
+}
+
+#homeButton {
+    position: absolute;
+    left: 50px;
+}
+
+.cardBack {
+    background-color: darkblue;
+    border: white solid 10px;
+    height: 200px;
+    width: 130px;
+    border-radius: 10px;
+    top: 60%;
+    left: 20%;
+    margin: 20px;
+    display: block;
+    float: left;
+}
+
+.cardArt {
+    color: white;
+    font-size: 202px;
+    position: relative;
+    bottom: 47px;
+    left: 5px;
+}
+
+
+.button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #fa6400;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}
+
+.button:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+}
+
+#finito {
+    background-color: #fa6400;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    top: 50%;
+    left: 40%;
+}
