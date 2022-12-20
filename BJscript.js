@@ -352,6 +352,7 @@ class Game {
         input.onsubmit = () => {
             let amount = parseInt(inputBox.value)
             if (amount <= this.player1.money) {
+                this.player1.money = this.player1.money + parseInt(betDisplay.innerHTML)
                 this.player1.money = this.player1.money - amount
                 moneyDisplay.innerHTML = this.player1.money
                 betDisplay.innerHTML = amount
@@ -366,9 +367,9 @@ class Game {
     }
 }
 
-let name = prompt("please enter a name", "human")
+// let name = prompt("please enter a name", "human")
 
-const game = new Game(new Player(name), new Player("CPU the Destroyer"))
+const game = new Game(new Player("Player"), new Player("CPU the Destroyer"))
 game.setup()
 
 function displayCPUCard() {

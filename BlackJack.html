@@ -18,6 +18,7 @@
                 <div id="container"></div>
             </fieldset>
             <a id="homeButton" class="button" href="Home.html">Return Home</a>
+            <a id="ruleButton" class="button">RULES</a>
         </div>
         <div id="scoreStuff">
             <div id="scoreContainer"></div>
@@ -45,7 +46,57 @@
 
     <div id="messageBox" style="display:none"></div>
 
+    <div id="ruleBox" style="display: none;">
+        <div>
+            <h1 id="title">Welcome to BlackJack!</h1>
+        </div>
+        <div>
+            <h2 id="title">RULES---------</h2>
+        </div>
+        <div>
+            <h3 id="title">
+                this goal is to reach a score of 21, if you go over 21 you are bust and lose,
+                if neither player reaches 21, the closest to it without going over
+                wins. if both players are bust then it is a draw.
+            </h3>
+            <p>- you need to add a bet to play</p>
+            <p>- your bet is displayed in the bottom right</p>
+            <p>- once a bet is added you can choose to "hit" or "hold"</p>
+            <p>
+                - hitting will give you another card, increasing your score.
+            </p>
+
+            <p>- your score is displayed underneath the play buttons</p>
+
+            <p>
+                - holding will end the round, so only do this once you are happy with your hand
+            </p>
+            <p>- once the round is over, the value of both players hands will be compared and a winner
+                will be found. if you win, your bet gets doubled and returned to you. if you lose, you
+                lose your bet
+            </p>
+            <p>- the value of kings,queens and jacks are all the same: 10</p>
+            <p>- the value of aces are 11, however if your score is above 21, the value of an ace
+                will be 1 instead
+            </p>
+            <p>- you cant see the other players cards but you can see how many cards they have, use
+                this to decide to hit or hold.
+            </p>
+        </div>
+    </div>
 
 </body>
+
+<script>
+    const ruleDisplay = document.getElementById("ruleBox")
+    const ruleButton = document.getElementById("ruleButton")
+    ruleButton.onclick = () => {
+        if (ruleDisplay.style.display == "none") {
+            ruleDisplay.style.display = "block"
+        } else {
+            ruleDisplay.style.display = "none"
+        }
+    }
+</script>
 
 </html>

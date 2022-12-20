@@ -22,7 +22,10 @@ body {
     background-color: green;
 }
 
-p {
+p,
+h1,
+h2,
+h3 {
     color: white;
 }
 
@@ -98,7 +101,8 @@ p {
 }
 
 #bets,
-#messageBox {
+#messageBox,
+#pairPlusCont {
     background-color: #fa6400;
     width: fit-content;
     height: fit-content;
@@ -107,6 +111,14 @@ p {
     left: 80%;
 }
 
+#ruleBox {
+    background-color: #fa6400;
+    width: 500px;
+    height: fit-content;
+    position: absolute;
+    top: 20%;
+    left: 30%
+}
 
 #moneyContainer {
     font-size: 30px;
@@ -132,6 +144,11 @@ p {
 #homeButton {
     position: absolute;
     left: 50px;
+}
+
+#ruleButton {
+    position: absolute;
+    right: 50px
 }
 
 .cardBack {

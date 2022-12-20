@@ -22,7 +22,10 @@ body {
     background-color: green;
 }
 
-p {
+p,
+h1,
+h2,
+h3 {
     color: white;
 }
 
@@ -208,4 +211,18 @@ p {
     width: fit-content;
     top: 50%;
     left: 40%;
+}
+
+#ruleButton {
+    position: absolute;
+    right: 50px
+}
+
+#ruleBox {
+    background-color: #fa6400;
+    width: 500px;
+    height: fit-content;
+    position: absolute;
+    top: 20%;
+    left: 30%
 }

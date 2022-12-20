@@ -14,14 +14,19 @@
     <div id="board">
         <div id="buttonContainer">
             <fieldset>
-                <!-- <legend>Options</legend> -->
                 <div id="container"></div>
             </fieldset>
             <a id="homeButton" class="button" href="Home.html">Return Home</a>
+            <a id="ruleButton" class="button">RULES</a>
+        </div>
+        <div id="pairPlusCont">
+            <div id="pairDisplay"></div>
         </div>
         <br><br>
         <div id="betStuff">
-            <div id="betContainer"></div>
+            <div id="betContainer">
+                <div id="betDisplay"></div>
+            </div>
         </div>
         <div id="parent">
             <div id="cardHolder">
@@ -41,6 +46,56 @@
     </div>
 
     <div id="messageBox" style="display:none"></div>
+    <div id="ruleBox" style="display: none;">
+        <div>
+            <h1 id="title">Welcome to 3 Card Poker!</h1>
+        </div>
+        <div>
+            <h2 id="title">RULES---------</h2>
+        </div>
+        <div>
+            <h3 id="title">
+                this is completely a game of chance, the only choices you have increase or
+                decrease your risk of losing money. but higher risks lead to higher rewards
+            </h3>
+            <p>- you need to add a bet to play</p>
+            <p>- once a bet is added you can choose to add a pair plus bonus</p>
+            <p>
+                - pair plus bonus means you will win extra money if u have a pair or
+                better in your hand. However, if you add the pair plus bonus and
+                do not get a pair or better, you will win less money than normally
+            </p>
+
+            <p>
+                - once you have decided on your bet, press ante-up this will lock in your
+                bet and show you your hand
+            </p>
+            <p>- here you can decide if you want to play or fold.</p>
+            <p>- if you play, you will need to match your bet (effectively doubling your bet)</p>
+            <p>- e.g if you bet 200 and then press play, you are actually betting
+                400 and will lose that much if you lose</p>
+            <p>- if you win however, the 400 will get multiplied and given back to you
+                how much it is multiplied by depends on if you applied the pair plus
+                bonus</p>
+            <p>- on the other hand, if you fold, you will simply lose the money you put in.
+                - there is no way to gain money if you fold but you will lose less money than
+                if you played and lost.</p>
+            <p> e.g if you put 200 in and folded you would lose 200. but if you put 200 in
+                played and lost, you would lose 400.</p>
+        </div>
+    </div>
 </body>
+
+<script>
+    const ruleDisplay = document.getElementById("ruleBox")
+    const ruleButton = document.getElementById("ruleButton")
+    ruleButton.onclick = () => {
+        if (ruleDisplay.style.display == "none") {
+            ruleDisplay.style.display = "block"
+        } else {
+            ruleDisplay.style.display = "none"
+        }
+    }
+</script>
 
 </html>
