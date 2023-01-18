@@ -82,7 +82,7 @@ class Player {
     constructor(name) {
         this.name = name
         this.cards = []
-        this.money = 1000
+        this.money = localStorage.getItem("storedMoney")
     }
 
     draw(deck) {
@@ -345,7 +345,6 @@ class Game {
         input.onsubmit = () => {
             let amount = parseInt(inputBox.value)
             if (amount <= this.player1.money) {
-                this.player1.money = this.player1.money + parseInt(betDisplay.innerHTML)
                 this.player1.money = this.player1.money - amount
                 moneyDisplay.innerHTML = this.player1.money
                 betDisplay.innerHTML = amount
@@ -630,6 +629,7 @@ class Game {
         if (!this.folded) {
             winner.money = winner.money + (parseInt(betDisplay.innerHTML) * betMultiplier)
         }
+        localStorage.setItem("storedMoney", this.player1.money)
         this.showEndScreen(winner.name)
     }
 
@@ -799,9 +799,7 @@ function displayCardFaceDown(id) {
     crd.appendChild(crdArt)
 }
 
-// let name = prompt("please enter a name", "human")
+const player1 = new Player("Player")
 
-const game = new Game(new Player("player"), new Player("CPU the Destroyer"))
+const game = new Game(player1, new Player("CPU the Destroyer"))
 game.setup()
-
-//module.exports = { Game, Player, Deck, Card, sortArray }

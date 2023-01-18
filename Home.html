@@ -19,6 +19,15 @@
             <a class="button" href="3CardPoker.html">3 Card Poker</a>
         </div>
     </div>
+    <div id="moneyContainer">
+        Money:
+        <div id="money"></div>
+    </div>
+    <script>
+        const moneyDisplay = document.getElementById("money")
+        let y = localStorage.getItem("storedMoney")
+        moneyDisplay.innerHTML = y
+    </script>
 </body>
 
 </html>

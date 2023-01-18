@@ -58,7 +58,7 @@ class Player {
         this.name = name
         this.cards = []
         this.score = 0
-        this.money = 1000
+        this.money = localStorage.getItem("storedMoney")
     }
 
     draw(deck) {
@@ -168,6 +168,7 @@ class Game {
 
         console.log(`${winner} wins`)
 
+        localStorage.setItem("storedMoney", this.player1.money)
         this.showEndScreen(winner)
     }
 
@@ -352,7 +353,6 @@ class Game {
         input.onsubmit = () => {
             let amount = parseInt(inputBox.value)
             if (amount <= this.player1.money) {
-                this.player1.money = this.player1.money + parseInt(betDisplay.innerHTML)
                 this.player1.money = this.player1.money - amount
                 moneyDisplay.innerHTML = this.player1.money
                 betDisplay.innerHTML = amount

@@ -58,12 +58,16 @@ h1 {
     transform: translateY(0);
 }
 
-#moneyContainer {
-    font-size: 30px;
-    background-color: #fa6400;
-    width: fit-content;
-    height: fit-content;
+.centered {
     position: absolute;
-    top: 75%;
-    left: 90%;
+    top: 50%;
+    left: 38%;
+    margin: -50px 0 0 -50px;
+}
+
+#buttonCont {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
 }
